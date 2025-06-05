@@ -61,6 +61,24 @@ class ArbolStock:
             self._inorden(nodo.izq, lista)
             lista.append(nodo.producto)
             self._inorden(nodo.der, lista)
+#Metodo para visualizar el arbol
+    def imprimir_arbol(self, nodo=None, prefijo="", es_ultimo=True):
+        if nodo is None:
+            nodo = self.raiz
+
+        print(prefijo + ("└── " if es_ultimo else "├── ") + f"({nodo.producto.codigo}) {nodo.producto.nombre}")
+
+        hijos = []
+        if nodo.izq:
+            hijos.append(nodo.izq)
+        if nodo.der:
+            hijos.append(nodo.der)
+
+        for i, hijo in enumerate(hijos):
+            es_ultimo_hijo = (i == len(hijos) - 1)
+            nuevo_prefijo = prefijo + ("    " if es_ultimo else "│   ")
+            self.imprimir_arbol(hijo, nuevo_prefijo, es_ultimo_hijo)
+
 
 #Ejemplo de uso, para agregar productos
 inventario = ArbolStock()
@@ -76,6 +94,7 @@ while valor: #Bucle para generar interacción con el usuario
     decision = int(input("Ingrese 1 para consultar el stock de un producto.\n"
                         "Ingrese 2 para agregar un producto.\n"
                         "Ingrese 3 para mostrar la lista de todos los productos.\n"
+                        "Ingrese 4 para mostrar graficamente como estan distribuidos los datos en el arbol\n"
                         "Ingrese 0 para terminar el programa: "))
     if decision == 1:
         codigo_buscar = int(input("Ingrese el codigo del producto: "))
@@ -95,6 +114,9 @@ while valor: #Bucle para generar interacción con el usuario
         for prod in inventario.listar_productos():
             print(prod)
         print("")
+    elif decision == 4:
+        print("\n📜 Estructura del árbol: \n")
+        inventario.imprimir_arbol()
     else:
         print("Programa finalizado.")
         valor = False 
