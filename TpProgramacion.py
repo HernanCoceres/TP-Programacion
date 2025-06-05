@@ -99,7 +99,7 @@ while valor: #Bucle para generar interacción con el usuario
     if decision == 1:
         codigo_buscar = int(input("Ingrese el codigo del producto: "))
         resultado = inventario.buscar(codigo_buscar)
-        print(f"\n🔍 Búsqueda del producto con código {codigo_buscar}:")
+        print(f"\n Búsqueda del producto con código {codigo_buscar}:")
         print(resultado if resultado else "Producto no encontrado\n")
         print("")#Print vacio solo para una vision mas limpia cuando se imprime el resultado
     elif decision == 2:
@@ -110,12 +110,12 @@ while valor: #Bucle para generar interacción con el usuario
         inventario.insertar(Producto(codigo, nombre, precio, stock))
         print(f"Producto {nombre} agregado.\n")
     elif decision == 3:
-        print("\n 📦 Productos ordenados por código:")
+        print("\n  Productos ordenados por código:")
         for prod in inventario.listar_productos():
             print(prod)
         print("")
     elif decision == 4:
-        print("\n📜 Estructura del árbol: \n")
+        print("\n Estructura del árbol: \n")
         inventario.imprimir_arbol()
     else:
         print("Programa finalizado.")
