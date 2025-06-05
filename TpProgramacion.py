@@ -62,7 +62,6 @@ class ArbolStock:
             lista.append(nodo.producto)
             self._inorden(nodo.der, lista)
 
-
 #Ejemplo de uso, para agregar productos
 inventario = ArbolStock()
 
@@ -73,7 +72,7 @@ inventario.insertar(Producto(103, "Notebook", 250000, 3))
 
 #Codigo para darle funcionalidad al arbol
 valor = True
-while valor: #Bucle para generar interacción con el usuario                                                                                                                 |11 
+while valor: #Bucle para generar interacción con el usuario
     decision = int(input("Ingrese 1 para consultar el stock de un producto.\n"
                         "Ingrese 2 para agregar un producto.\n"
                         "Ingrese 3 para mostrar la lista de todos los productos.\n"
