@@ -92,10 +92,10 @@ inventario.insertar(Producto(103, "Notebook", 250000, 3))
 valor = True
 while valor: #Bucle para generar interacción con el usuario
     decision = int(input("Ingrese 1 para consultar el stock de un producto.\n"
-                        "Ingrese 2 para agregar un producto.\n"
-                        "Ingrese 3 para mostrar la lista de todos los productos.\n"
-                        "Ingrese 4 para mostrar graficamente como estan distribuidos los datos en el arbol\n"
-                        "Ingrese 0 para terminar el programa: "))
+                         "Ingrese 2 para agregar un producto.\n"
+                         "Ingrese 3 para mostrar la lista de todos los productos.\n"
+                         "Ingrese 4 para mostrar graficamente como estan distribuidos los datos en el arbol\n"
+                         "Ingrese 0 para terminar el programa: "))
     if decision == 1:
         codigo_buscar = int(input("Ingrese el codigo del producto: "))
         resultado = inventario.buscar(codigo_buscar)
